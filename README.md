@@ -12,6 +12,8 @@
   - [Using Rust](#using-rust)
       - [Method 1: Pub Sub pattern](#method-1-pub-sub-pattern-1)
       - [Method 2: Req Reply pattern](#method-2-req-reply-pattern-1)
+  - [Using JS](#using-js)
+      - [Method 1: Push Pull pattern](#method-1-push-pull-pattern)
 
 ## Using Python
 
@@ -117,5 +119,19 @@ docker build -t replier -f Dockerfile.replier .
 docker build -t requester -f Dockerfile.requester .
 
 docker-compose up --build
+
+```
+
+## Using JS
+
+#### Method 1: Push Pull pattern
+
+- `npm install zeromq`
+
+```bash
+
+node js/pushpull/server.js (run the server)
+
+node js/pushpull/worker.js (run the worker) - gets messages from server
 
 ```

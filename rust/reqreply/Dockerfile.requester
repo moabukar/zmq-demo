@@ -1,13 +1,34 @@
-FROM rust:1.56 as builder
+# # Build Stage
+# FROM rust:1.56 as builder
+# WORKDIR /usr/src
 
+# COPY ./reqreply/Cargo.toml ./reqreply/Cargo.lock ./
+# RUN mkdir src/
+# RUN cargo build --bin requester
+
+# COPY ./reqreply/src ./src
+# RUN cargo build --bin requester
+
+# # Runtime stage
+# FROM debian:buster-slim as runtime
+# COPY --from=builder /usr/src/target/debug/requester /usr/local/bin/
+# CMD ["requester"]
+
+# Build Stage
+FROM rust:1.56 as builder
 WORKDIR /usr/src
 
-COPY . .
-
+# Copy just your manifests and build the dependencies to cache them
+COPY Cargo.toml Cargo.lock ./
+RUN mkdir src/
+RUN echo "fn main() {}" > src/main.rs
 RUN cargo build --bin requester
 
-FROM debian:buster-slim
+# Now, build your actual source code
+COPY ./src ./src
+RUN cargo build --bin requester
 
-COPY --from=builder /usr/src/target/release/requester /requester
-
-CMD ["/requester"]
+# Runtime Stage
+FROM debian:buster-slim as runtime
+COPY --from=builder /usr/src/target/debug/requester /usr/local/bin/
+CMD ["requester"]

@@ -1,13 +1,15 @@
+# Build Stage
 FROM rust:1.56 as builder
-
 WORKDIR /usr/src
 
-COPY . .
-
+COPY ./reqreply/Cargo.toml ./reqreply/Cargo.lock ./
+RUN mkdir src/
 RUN cargo build --bin replier
 
-FROM debian:buster-slim
+COPY ./reqreply/src ./src
+RUN cargo build --bin replier
 
-COPY --from=builder /usr/src/target/release/replier /replier
-
-CMD ["/replier"]
+# Runtime Stage
+FROM debian:buster-slim as runtime
+COPY --from=builder /usr/src/target/debug/replier /usr/local/bin/
+CMD ["replier"]
