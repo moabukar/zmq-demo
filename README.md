@@ -107,3 +107,15 @@ cargo run --bin server (run the server)
 cargo run --bin worker (run the worker) - gets messages from server
 
 ```
+
+- Using Docker
+
+```bash
+
+docker build -t replier -f Dockerfile.replier .
+
+docker build -t requester -f Dockerfile.requester .
+
+docker-compose up --build
+
+```

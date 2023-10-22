@@ -1,0 +1,13 @@
+FROM rust:1.56 as builder
+
+WORKDIR /usr/src
+
+COPY . .
+
+RUN cargo build --bin requester --release
+
+FROM debian:buster-slim
+
+COPY --from=builder /usr/src/target/release/requester /requester
+
+CMD ["/requester"]

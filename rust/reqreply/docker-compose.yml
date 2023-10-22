@@ -1,0 +1,15 @@
+version: '3'
+services:
+  replier:
+    build:
+      context: .
+      dockerfile: Dockerfile.replier
+    ports:
+      - "5560:5560"
+
+  requester:
+    build:
+      context: .
+      dockerfile: Dockerfile.requester
+    depends_on:
+      - replier

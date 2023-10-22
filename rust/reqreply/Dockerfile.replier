@@ -1,0 +1,13 @@
+FROM rust:1.56 as builder
+
+WORKDIR /usr/src
+
+COPY . .
+
+RUN cargo build --bin replier --release
+
+FROM debian:buster-slim
+
+COPY --from=builder /usr/src/target/release/replier /replier
+
+CMD ["/replier"]
