@@ -27,6 +27,12 @@ python3 py/pipeline/manager.py (run the manager)
 
 python3 py/pipeline/worker.py (run the worker) - gets messages from manager
 
+# Method 4: Pair pattern
+
+python3 py/pair/bind.py (run the bind)
+
+python3 py/pair/connect.py (run the connect) - gets messages from bind
+
 ```
 
 ## Using Go
