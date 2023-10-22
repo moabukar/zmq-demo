@@ -7,6 +7,8 @@
     - [Method 3: Push Pull (Pipeline) pattern](#method-3-push-pull-pipeline-pattern)
     - [Method 4: Pair pattern](#method-4-pair-pattern)
   - [Using Go](#using-go)
+      - [Method 1: Pub Sub pattern](#method-1-pub-sub-pattern)
+      - [Method 2: Req Reply pattern](#method-2-req-reply-pattern)
 
 ## Using Python
 
@@ -54,3 +56,24 @@ python3 py/pair/connect.py (run the connect) - gets messages from bind
 ```
 
 ## Using Go
+
+
+#### Method 1: Pub Sub pattern
+
+```
+
+go run go/pubsub/pub.go (run the publisher)
+
+go run go/pubsub/sub.go (run the subscriber) - gets messages from publisher
+
+```
+
+#### Method 2: Req Reply pattern
+
+```
+
+go run go/reqreply/server.go (run the server)
+
+go run go/reqreply/worker.go (run the worker) - gets messages from server
+
+```
