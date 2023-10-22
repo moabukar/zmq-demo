@@ -9,6 +9,8 @@
   - [Using Go](#using-go)
       - [Method 1: Pub Sub pattern](#method-1-pub-sub-pattern)
       - [Method 2: Req Reply pattern](#method-2-req-reply-pattern)
+  - [Using Rust](#using-rust)
+      - [Method 1: Pub Sub pattern](#method-1-pub-sub-pattern-1)
 
 ## Using Python
 
@@ -75,5 +77,20 @@ go run go/pubsub/sub.go (run the subscriber) - gets messages from publisher
 go run go/reqreply/server.go (run the server)
 
 go run go/reqreply/worker.go (run the worker) - gets messages from server
+
+```
+
+
+## Using Rust
+
+#### Method 1: Pub Sub pattern
+
+- `cargo new --bin pubsub` (create a new RUst binary project)
+
+```bash
+
+cargo run --bin pub (run the publisher)
+
+cargo run --bin sub (run the subscriber) - gets messages from publisher
 
 ```
