@@ -1,0 +1,17 @@
+[package]
+name = "reqreply"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+zmq = "0.9"
+
+[[bin]]
+name = "replier"
+path = "src/replier.rs"
+
+[[bin]]
+name = "requester"
+path = "src/requester.rs"

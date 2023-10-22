@@ -11,6 +11,7 @@
       - [Method 2: Req Reply pattern](#method-2-req-reply-pattern)
   - [Using Rust](#using-rust)
       - [Method 1: Pub Sub pattern](#method-1-pub-sub-pattern-1)
+      - [Method 2: Req Reply pattern](#method-2-req-reply-pattern-1)
 
 ## Using Python
 
@@ -92,5 +93,17 @@ go run go/reqreply/worker.go (run the worker) - gets messages from server
 cargo run --bin pub (run the publisher)
 
 cargo run --bin sub (run the subscriber) - gets messages from publisher
+
+```
+
+#### Method 2: Req Reply pattern
+
+- `cargo new --bin reqreply` (create a new RUst binary project)
+
+```bash
+
+cargo run --bin server (run the server)
+
+cargo run --bin worker (run the worker) - gets messages from server
 
 ```
