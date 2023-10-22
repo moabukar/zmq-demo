@@ -7,7 +7,7 @@ context = zmq.Context()
 sock = context.socket(zmq.SUB)
 
 # Define subscription and messages with prefix to accept.
-sock.setsockopt(zmq.SUBSCRIBE, "1")
+sock.setsockopt(zmq.SUBSCRIBE, b"1")
 sock.connect("tcp://127.0.0.1:5680")
 
 while True:
