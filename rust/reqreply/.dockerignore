@@ -1,0 +1,17 @@
+# Ignore the target directory, which contains compiled files
+target/
+
+# Ignore .git directory and .gitignore
+.git/
+.gitignore
+
+# Ignore any editor-specific files (VS Code, Vim, etc.)
+.vscode/
+*.swp
+*.swo
+
+# Ignore other non-essential files
+README.md
+Dockerfile
+*.md
+*.dockerignore

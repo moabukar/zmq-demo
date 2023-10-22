@@ -4,7 +4,7 @@ WORKDIR /usr/src
 
 COPY . .
 
-RUN cargo build --bin requester --release
+RUN cargo build --bin requester
 
 FROM debian:buster-slim
 
